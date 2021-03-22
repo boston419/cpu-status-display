@@ -16,3 +16,13 @@ If a line is too long to fit in 16 characters the line will scroll slowly to the
 The corresponding Python script uses the `pywin32` and `wmi` modules to gather information from Windows about the CPU usage, etc. It then formats the data into a string and sends it to the Arduino where it is displayed. By default the script uses serial connection `COM 3`. It is possible to display the CPU temperature if supported by the computer's motherboard (unfortunately I couldn't get this to work but for information see [here](http://stackoverflow.com/questions/10776802/which-python-module-is-used-to-read-cpu-temperature-and-processor-fan-speed-in-w)).
  
 The Python script is also wrapped as a Windows service meaning the display will have the information as soon as the computer has booted to the logon screen. To install the service run `cmd.exe` as an administrator, change to the directory where the script is and run `python serial_print.py install`. After this the service will appear in the list of windows services (Computer > Manage > Services) where it can be set to start automatically at startup.
+
+(Edited for a slightly better description of what was changed)
+The files contained in this project are as follows:
+
+src-> The original code by djbarker. Contains all of the original files.
+
+The rest is forked code updated by myself to run on 20x4 I2C LCD displays using the NewLiquidCrystal LCD Lib.
+	   One is still set for 16x2 I2C, the other is marked for 20x4.
+
+The update also contains a modified Python script for the 20x4 display.
